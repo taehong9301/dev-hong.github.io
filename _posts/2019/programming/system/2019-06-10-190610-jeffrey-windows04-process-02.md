@@ -2,10 +2,10 @@
 title: "프로세스 (Windows system programming) Section02"
 excerpt: "제프리 리처의 Windows via C/C++, 4장 프로세스 Process, Section02"
 search: true
-categories: 
+categories:
   - Programming
   - System
-tags: 
+tags:
   - Process
   - Windows System Programming
 last_modified_at: 2019-06-10T18:10:00+09:00
@@ -13,10 +13,10 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/jeffrey-windows04-process.png
+  teaser: /assets/images/thumbnail/2019/jeffrey-windows04-process.png
 example_gallery:
-  - url: 
-    image_path: 
+  - url:
+    image_path:
     alt: ""
     title: ""
 ---
@@ -147,6 +147,7 @@ BOOL FreeEnvironmentStrings(PTSTR pszEnvironmentBlock);
 #### psiStartInfo
 
 매개변수에 2개의 구조체 포인터를 넣어줘야 함
+
 - `STARTUPINFO`
 
 ```c
@@ -156,7 +157,7 @@ typedef struct _STARTUPINFO {
     PSTR lpDesktop; // 애플리케이션이 실행되는 데스크톱의 이름 (윈도우, 콘솔)
 
     // 화면 상에서 애플리케이션 윈도우의 X, Y 좌표(픽셀 단위) 지정 (윈도우, 콘솔)
-    DWORD dwX; 
+    DWORD dwX;
     DWORD dwY;
 
     // 애플리케이션의 넓이와 높이(픽셀 단위) 지정 (윈도우, 콘솔)
@@ -168,7 +169,7 @@ typedef struct _STARTUPINFO {
     WORD wShowWindow; // 윈도우가 어떨게 나타날지를 지정 (윈도우)
     WORD cbReserved2; // 예약된 멤버, 0으로 초기화 (윈도우, 콘솔)
     PBYTE lpReserved2; // 예약된 멤버, NULL로 초기화 (윈도우, 콘솔)
-    
+
     // 콘솔 입출력에 사용할 버퍼를 가리키는 핸들을 지정 (콘솔)
     HANDLE hStdInput;
     HANDLE hStdOutput;
@@ -194,18 +195,17 @@ CreateProcess(..., &si, ...);
 
 초기값 0을 설정하지 않으면, 각 멤버는 **쓰레기값을 가지게 된다.** 그래서 간혹 프로세스가 생성되지 못하기도 한다. 즉, `CreateProcess` 가 정상적으로 동작하기 위해서 각 멤버 값을 0으로 초기화 하는 작업은 매우 중요하다. (이러한 초기화 절차의 누락은 개발자들이 흔히 저지르는 실수 중 하나)
 
-
 - dwFlags에 지정할 수 있는 플래그
 
-|플래그|의미|
-|---|---|
-|STARTF_USESIZE|dwSize와 dwYSize 멤버를 사용한다.|
-|STARTF_USEHOWWINDOW|wShowWindow 멤버를 사용한다.|
-|STARTF_USEPOSITION|dwX 와 dwY 멤버를 사용한다.|
-|STARTF_USECOUNTCHARS|dwXCountChars 와 dwYCountChars 멤버를 사용한다.|
-|STARTF_USEFILLATTRIBUTE|dwFillAttribute 멤버를 사용한다.|
-|STARTF_USETDHANDLES|hStdout, hStdError 멤버를 사용한다.|
-|STARTF_RUNFULLSCREEN|x86 컴퓨터에서 콘솔 애플리케이션이 전체 화면으로 시작되도록 한다.|
+| 플래그                  | 의미                                                              |
+| ----------------------- | ----------------------------------------------------------------- |
+| STARTF_USESIZE          | dwSize와 dwYSize 멤버를 사용한다.                                 |
+| STARTF_USEHOWWINDOW     | wShowWindow 멤버를 사용한다.                                      |
+| STARTF_USEPOSITION      | dwX 와 dwY 멤버를 사용한다.                                       |
+| STARTF_USECOUNTCHARS    | dwXCountChars 와 dwYCountChars 멤버를 사용한다.                   |
+| STARTF_USEFILLATTRIBUTE | dwFillAttribute 멤버를 사용한다.                                  |
+| STARTF_USETDHANDLES     | hStdout, hStdError 멤버를 사용한다.                               |
+| STARTF_RUNFULLSCREEN    | x86 컴퓨터에서 콘솔 애플리케이션이 전체 화면으로 시작되도록 한다. |
 
 윈도우는 선점형 멀티테스킹을 지원하기 때문에 새로 생성한 프로세스가 초기화 되는 동안 다른 프로그램을 수행할 수 있다. 새로 생성한 프로그램이 초기화 작업중인것을 비주얼로 보여주기 위해 `CreateProcess`는 임시로 운영체제의 화살표 커서를 기다리는 모양(애플리케이션 시작 커서)으로 변경한다.
 
@@ -314,6 +314,7 @@ typedef struct _PROCESS_INFORMATION {
 고유 ID값은 보통 시스템 내의 프로세스와 스레드를 구분하기 위한 용도로 사용하고, 일반적인 애플리케이션에서는 사용하지 않는다. 만약 프로세스와 스레드의 ID값 추적하면서 사용하는 경우, **ID 값이 즉각적으로 재사용된다는 사실**을 알아야한다. 예를들어 이미 수행중인 프로세스의 ID 값이 124일때, 프로세스가 종료되면 124 ID 값은 다음번에 생성되는 프로세스가 할당 받을 수 있다. 즉, 앞서 할당된 프로세스가 종료되면, 종료된 프로세스의 ID를 새로 생성된 프로세스가 (동일한 ID 값) 할당 받을 수 있다는 의미다.
 
 ID값을 얻을 수 있는 함수들
+
 - `GetCurrentProcessId`: 현재 수행중인 프로세스 ID를 가져옴
 - `GetCurrentThreadId`: 현재 수행중인 스레드 ID를 가져옴
 - `GetProcessId`: 커널 오브젝트 핸들을 이용하여 프로세스 ID를 가져옴
