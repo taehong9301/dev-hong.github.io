@@ -24,9 +24,9 @@ example_gallery:
 <i class="fas fa-feather-alt"></i> **이전 글** <a href="/programming/system/190609-jeffrey-windows04-process-01/" target="_blank">Section01. 첫 번째 윈도우 애플리케이션 작성</a>
 {: .notice--info}
 
-## Section02 CreateProcess 함수
+## Section 02. CreateProcess 함수
 
-CreateProcess 함수를 이용하면 새로운 프로세스를 생성할 수 있다.
+`CreateProcess` 함수를 이용하면 새로운 프로세스를 생성할 수 있다.
 
 ```c
 BOOL CreateProcess (
@@ -44,7 +44,7 @@ BOOL CreateProcess (
 
 스레드가 `CreateProcess`를 호출하면 시스템은 사용 카운트가 1인 프로세스 커널 오브젝트를 생성한다. 이때 프로세스 커널 오브젝트는 프로세스 자체가 아니다. 운영체제가 프로세스를 관리하기 위한 목적으로 생성한 조그마한 데이터 구조체이다.
 
-#### CreateProcess에 의해 프로세스가 생성되는 과정
+### CreateProcess에 의해 프로세스가 생성되는 과정
 
 1. CreateProcess에 의해 프로세스 커널 오브젝트(사용 카운트 1)가 생성된다.
 2. 프로세스 커널 오브젝트가 생성되면 프로세스를 위한 가상 주소 공간을 생성한다.
