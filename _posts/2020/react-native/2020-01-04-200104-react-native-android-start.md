@@ -39,8 +39,8 @@ start-project:
 
 # 환경 및 준비
 
-운영체제: 맥킨토시 `MAC OS`
-준비물: `homebrew`
+- 운영체제: 맥킨토시 `MAC OS`
+- 준비물: `homebrew`
 
 # nodejs & watchman 설치
 
@@ -77,9 +77,9 @@ $ java -version
 
 다운로드가 완료되면, 초기 세팅에서 `custom`을 누릅니다.
 
-{% include gallery id="click-custom" caption="custom을 누르세요." %}
+{% include gallery id="click-custom" caption="custom을 체크하고 Next 누르세요." %}
 
-총 4개의 항목을 체크하여 다운로드 받습니다.
+아래 그림과 같이, 총 4개의 항목을 체크하여 다운로드 받습니다.
 
 - Android SDK
 - Android SDK Platform
@@ -94,7 +94,7 @@ $ java -version
 
 `$HOME/.bash_profile` 에 환경변수 추가
 
-```
+```bash
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -120,7 +120,7 @@ $ npx react-native init TestApp
 $ react-native init TestApp
 ```
 
-# 프로젝트 실행
+# RN 프로젝트 실행
 
 방금 만든 프로젝트를 실행한다.
 
