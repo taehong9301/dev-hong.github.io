@@ -300,7 +300,7 @@ defaults:
         overlay_image: /assets/images/banner.jpg
         caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
       excerpt: >
-        IT 기술 블로그<br />
+        IT 에 취.하.개.<br />
         <small>Python, Javascipt, Java, Scala, Web, ReactJS, Algorithm</small>
 
 #  # _docs
