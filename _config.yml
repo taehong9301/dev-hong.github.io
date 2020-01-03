@@ -302,3 +302,19 @@ defaults:
       excerpt: >
         IT 기술 블로그<br />
         <small>Python, Javascipt, Java, Scala, Web, ReactJS, Algorithm</small>
+
+#  # _docs
+#   - scope:
+#       path: ""
+#       type: docs
+#     values:
+#       layout: single
+#       read_time: false
+#       author_profile: false
+#       comments: true
+#       header:
+#         overlay_color: "#5e616c"
+#         overlay_image: /assets/images/banner.jpg
+#         caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+#       sidebar:
+#         nav: "python-docs"
