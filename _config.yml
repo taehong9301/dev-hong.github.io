@@ -282,3 +282,23 @@ defaults:
       comments: # true
       share: true
       related: true
+      header:
+        overlay_color: "#5e616c"
+        overlay_filter: 0.5
+        overlay_image: https://source.unsplash.com/random/1280x/?business
+        caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      header:
+        overlay_color: "#5e616c"
+        overlay_filter: 0.3
+        overlay_image: /assets/images/banner.jpg
+        caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+      excerpt: >
+        IT 기술 블로그<br />
+        <small>Python, Javascipt, Java, Scala, Web, ReactJS, Algorithm</small>
