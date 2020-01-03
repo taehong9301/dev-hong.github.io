@@ -2,10 +2,10 @@
 title: "프로세스 (Windows system programming) Section01"
 excerpt: "제프리 리처의 Windows via C/C++, 4장 프로세스 Process, Section01"
 search: true
-categories: 
+categories:
   - Programming
   - System
-tags: 
+tags:
   - Process
   - Windows System Programming
 last_modified_at: 2019-06-09T17:10:00+09:00
@@ -13,27 +13,28 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/jeffrey-windows04-process.png
+  teaser: /assets/images/thumbnail/2019/jeffrey-windows04-process.png
 example_gallery:
-  - url: 
-    image_path: 
+  - url:
+    image_path:
     alt: ""
     title: ""
 ---
 
 # Chapter04. 프로세스
 
-시스템이 수행 중인 프로세스를 어떻게 관리하는지에 대해 알아보자.  
+시스템이 수행 중인 프로세스를 어떻게 관리하는지에 대해 알아보자.
 
 프로세스는 일반적으로 수행 중인 프로그램의 인스턴스(instance)라고 정의한다.
 
 프로세스는 2개의 컴포넌트로 구성된다. (커널 오브젝트와 메모리 공간)
+
 - 프로세스를 관리하기 위한 목적으로 커널 오브젝트를 가지고 있고, 커널 오브젝트에는 프로세스에 대한 각종 통계 정보를 저장하고 있다.
 - 실행 모듈, DLL(dynamic-link library)의 코드와 데이터를 수용하는 주소공간이 있다. 이런 주소 공간은 스택, 힙과 같은 동적 메모리 할당에 사용되는 공간도 포함된다.
 
-### 스레드
+## 스레드
 
-프로세스는 자력으로 수행될 수 없고, 무언가를 수행하기 위해서는 반드시 프로세스의 컨텍스트 내에서 수행되는 스레드(thread)가 있어야 한다.  
+프로세스는 자력으로 수행될 수 없고, 무언가를 수행하기 위해서는 반드시 프로세스의 컨텍스트 내에서 수행되는 스레드(thread)가 있어야 한다.
 
 스레드는 프로세스의 주소 공간에 위치한 코드를 수행한다. 하나의 프로세스는 다수의 스레드를 가질 수 있다. 이러한 스레드는 프로세스 내에서 동시에 실행된다.
 
@@ -43,7 +44,7 @@ example_gallery:
 
 프로세스의 주소 공간 내의 코드를 수행할 스레드가 없다면, 프로세스는 계속해서 존재해야 할 이유가 없다. 따라서 시스템은 자동적으로 프로세스와 프로세스 주소공간을 파괴한다.
 
-### 스레드와 스케줄링
+## 스레드와 스케줄링
 
 운영체제는 모든 스레드가 동시에 수행될 수 있도록 CPU 시간을 조금씩 나누어준다. 이때 라운드 로빈(round-robin)방식으로 주어지고, 이때 주어지는 단위 시간을 퀀텀(quantum)이라고 부른다. 실제로는 동시에 수행되는것이 아니지만 단위시간이 짧아 동시에 실행되는 것처럼 보인다.
 
@@ -54,13 +55,13 @@ example_gallery:
 윈도우에는 2가지 형태의 애플리케이션이 있다.
 
 - GUI: 그래픽 유저 인터페이스(Graphic User Interface)
-    - GUI 기반 애플리케이션: 메모장(Notepad), 계산기(Calculator), 워드패드(WordPad) 등등
+  - GUI 기반 애플리케이션: 메모장(Notepad), 계산기(Calculator), 워드패드(WordPad) 등등
 - CUI: 콘솔 유저 인터페이스(Console User Interface)
-    - CUI 기반 애플리케이션은 일반적으로 윈도우를 생성하지 않는 텍스트 기반으로 된 애플리케이션이다. 대표적으로 명령 프롬프트(command prompt), 즉 cmd.exe와 같은 애플리케이션이라고 할 수 있다.
+  - CUI 기반 애플리케이션은 일반적으로 윈도우를 생성하지 않는 텍스트 기반으로 된 애플리케이션이다. 대표적으로 명령 프롬프트(command prompt), 즉 cmd.exe와 같은 애플리케이션이라고 할 수 있다.
 
 ### 링커 스위치(Linker Switch)
 
-사용자가 애플리케이션을 수행하면 운영체제의 로더(loader)는 실행 파일의 헤더를 확인하여 서브시스템 값을 가져온다.  
+사용자가 애플리케이션을 수행하면 운영체제의 로더(loader)는 실행 파일의 헤더를 확인하여 서브시스템 값을 가져온다.
 
 Visual Studio을 이용하면 실행 파일의 형태에 맞는 서브 시스템(subsystem) 타입을 실행 파일에 포함시킬 수 있도록, 다양한 링커 스위치(linker switch)를 설정한다.
 
@@ -80,6 +81,7 @@ int WINAPI _tWinMain(
     PTSTR pszCmdLine,
     int nCmdShow);
 ```
+
 ```c
 int _tmain(
     int argc,
@@ -89,12 +91,12 @@ int _tmain(
 
 어떤 진입점 함수를 사용할지는 유니코드 문자열 사용 여부에 달려있다. 운영체제는 사용자가 작성한 진입점 함수를 직접 호출하지 않으며, C/C++ 런타임에 의해 구현된 C/C++ 런타임 시작 함수(C/C++ runtime startup function)를 호출한다.
 
-|애플리케이션 타입|진입점|실행 파일에 포함되는 런타임 시작 함수|
-|---|---|---|
-|ANSI 문자(열)를 사용하는 GUI 애플리케이션|_tWinMain(WinMain)|WinMainCRTStartup|
-|유니코드 문자(열)를 사용하는 GUI 애플리케이션|_tWinMain(wWinMain)|wWinMainCRTStartup|
-|ANSI 문자(열)를 사용하는 CUI 애플리케이션|_tmain(main)|mainCRTStartup|
-|유니코드 문자(열)를 사용하는 CUI 애플리케이션|_tmain(wmain)|wmainCRTStartup|
+| 애플리케이션 타입                             | 진입점               | 실행 파일에 포함되는 런타임 시작 함수 |
+| --------------------------------------------- | -------------------- | ------------------------------------- |
+| ANSI 문자(열)를 사용하는 GUI 애플리케이션     | \_tWinMain(WinMain)  | WinMainCRTStartup                     |
+| 유니코드 문자(열)를 사용하는 GUI 애플리케이션 | \_tWinMain(wWinMain) | wWinMainCRTStartup                    |
+| ANSI 문자(열)를 사용하는 CUI 애플리케이션     | \_tmain(main)        | mainCRTStartup                        |
+| 유니코드 문자(열)를 사용하는 CUI 애플리케이션 | \_tmain(wmain)       | wmainCRTStartup                       |
 
 링커는 실행 파일을 링크하는 단계에서 적절한 C/C++ 런타임 시작 함수를 선택한다. 만약 링커 스위치가 `/SUBSYSTEM:WINDOWS` 로 설정되어 있으면, 링커는 WinMain 이나 wWinMain 함수를 찾는다. 하지만, 이런 함수가 없는 경우 "unresolved external symbol" 에러를 반환한다. 그리고, 함수를 정상적으로 찾은 경우 WinMainCRTStartup 이나 wWinMainCRTStartup 를 호출한다.
 
@@ -123,7 +125,7 @@ C/C++ 런타임 시작 함수는 진입점 함수가 어떤 것인지 확인하�
 
 이러한 이러한 초기화 과정이 모두 완료되고 나서 C/C++ 시작 함수는 애플리케이션의 진입점 함수를 호출한다.
 
-#### _tWinMain 함수를 구현하고 _UNICODE 인 경우
+#### \_tWinMain 함수를 구현하고 \_UNICODE 인 경우
 
 ```c
 GetStartupInfo(&StartupInfo);
@@ -136,7 +138,7 @@ int nMainRetVal = wWinMain(
 
 - `&__ImageBase`: 링커가 정의하는 가상의 변수. 메모리의 어느 위치에 실행 파일을 로드하였는지 알려주는 값.
 
-#### _tWinMain 함수를 구현하고 _UNICODE 가 정의되지 않은 경우
+#### \_tWinMain 함수를 구현하고 \_UNICODE 가 정의되지 않은 경우
 
 ```c
 GetStartupInfo(&StartupInfo);
@@ -147,13 +149,13 @@ int nMainRetVal = WinMain(
     (StartupInfo.dwFlags & STARTF_USESHOWWINDOW) ? StartupInfo.wShowWindow : SW_SWOHDEFAULT);
 ```
 
-#### _tmain 함수를 구현하고 _UNICODE 가 정의된 경우
+#### \_tmain 함수를 구현하고 \_UNICODE 가 정의된 경우
 
 ```c
 int nMainRetVal = wmain(argc, argv, envp);
 ```
 
-#### _tmain 함수를 구현하고 _UNICODE 가 정의되지 않은 경우
+#### \_tmain 함수를 구현하고 \_UNICODE 가 정의되지 않은 경우
 
 ```c
 int nMainRetVal = main(argc, argv, envp);
@@ -199,7 +201,7 @@ HICON LoadIcon(
 
 많은 애플리케이션에서 `(w)WinMain`의 `hInstanceExe` 매개변수를 전역변수에 저장해 두어 실행 파일의 전체 소스에서 이 값을 쉽게 사용할 수 있도록 한다.
 
-SDK 문서를 살펴보면 HMODULE을 인자로 받는 함수가 있는데, 아래와 같이 `GetModuleFileName` 함수가 있다. 
+SDK 문서를 살펴보면 HMODULE을 인자로 받는 함수가 있는데, 아래와 같이 `GetModuleFileName` 함수가 있다.
 
 ```c
 DWORD GetModuleFileName (
@@ -211,12 +213,11 @@ DWORD GetModuleFileName (
 <i class="fas fa-feather-alt"></i> **Note** HMODULE과 HINSTANCE는 동일하다. 예전 16비트 윈도우에서는 HMODULE과 HINSTANCE가 구분되어 사용되었지만 지금은 혼용하여 사용하고 있다.
 {: .notice--info}
 
-실제론 hInstanceExe의 값은 시스템이 프로세스의 메모리 주소 공간 상에 실행 파일을 로드할 **시작 메모리 주소(base memory address)다.** 그리고 이 시작 주소는 링커에 의해서 결정된다. 
+실제론 hInstanceExe의 값은 시스템이 프로세스의 메모리 주소 공간 상에 실행 파일을 로드할 **시작 메모리 주소(base memory address)다.** 그리고 이 시작 주소는 링커에 의해서 결정된다.
 
 서로 다른 링커는 서로 다른 시작 주소를 가질 수 있다. Visual Studio의 링커는 `0x00400000`을 기본 시작 주소로 사용한다. 그 이유는 윈도우 98에서 실행 파일을 로드할 수 있는 가장 하단의 메모리 주소였기 때문이다.
 
 만약 애플리케이션이 로드되는 시작 주소를 변경하고 싶다면 `/BASE:address` 옵션을 사용하여 변경 할 수 있다.
-
 
 GetModuleHandle 함수는 실행파일 또는 DLL 파일이 프로세스 메모리 공간상에 어디에 로드되어 있는지를 가리키는 핸들/시작 주소를 반환한다.
 
@@ -229,7 +230,8 @@ HMODULE GetModuleHandle(PCTSTR pszModule);
 만약 인자(pszModule)로 NULL값을 넘겨주면, GetModuleHandle이 현재 수행중인 실행 파일이 로드된 시작 주소를 반환한다.
 
 해당 함수가 DLL내에서 호출되는 경우, 어떤 모듈에서 실행이되고 있는 알 수 있는 방법은 2가지가 있다.
-- __ImageBase가 현재 수행중인 모듈의 시작주소를 가리키고 있다는 점을 활용
+
+- \_\_ImageBase가 현재 수행중인 모듈의 시작주소를 가리키고 있다는 점을 활용
 - GetModuleHandleEx 함수를 호출하는 방법
 
 ```c
@@ -262,6 +264,7 @@ int main(int argc, TCHAR* argv[]) {
 ```
 
 `GetModuleHandle` 함수 특징
+
 - GetModuleHandle 함수는 자신을 호출한 프로세스의 주소 공간만을 확인한다
 - NULL값을 인자로 넘겨주면, 프로세스 주소 공간에 로드된 실행 파일의 시작 주소를 반환한다 (주의. DLL 내부에 NULL을 인자로 호출하는 경우, 그 DLL의 시작주소가 아닌 실행 파일의 시작 주소를 반환한다)
 
@@ -313,7 +316,7 @@ PTSTR GetCommandLine();
 
 #### 명령행 구분, 토큰
 
-많은 애플리케이션이 명령행으로 전달된 내용을 토큰으로 구분한다. 구분된 토큰에 접근하기 위해 전역 __argc와 __argv(혹은 __wargv) 변수들을 사용한다. (사실 이러한 변수들을 사용하는 것을 권장하지 않는다)
+많은 애플리케이션이 명령행으로 전달된 내용을 토큰으로 구분한다. 구분된 토큰에 접근하기 위해 전역 **argc와 **argv(혹은 \_\_wargv) 변수들을 사용한다. (사실 이러한 변수들을 사용하는 것을 권장하지 않는다)
 
 `ShellAPI.h` 파일에 의해 선언되고, `Shell32.dll`에 의해 익스포트된 `CommandLineToArgvW`라는 함수가 있다. 이 함수는 유니코드 문자열을 여러개의 토큰으로 분리한다.
 
@@ -352,6 +355,7 @@ VarName3=VarValue3\0 ...
 VarNameX=VarValueX\0
 \0
 ```
+
 각 문자열의 첫 번째 부분은 환경변수의 이름이다. `'='` 다음으로 할당하고자 하는 변수의 값이 나타난다. `'='`로 시작하는 문자열은 환경변수로 사용되는 문자열이 아니다.
 
 환경블록에 접근하는 방법에는 2가지 방법이 있다. 각각의 방법은 서로 다른 파싱(parsing) 방식을 사용한다.
@@ -474,7 +478,7 @@ void PrintEnvironmentVariable(PCTSTR pszVariableName) {
 %USERPROFILE%\Documents
 ```
 
-%로 감싼 부분은 대체 가능 문자열을 뜻한다. USERPROFILE 값이 아래와 같을 때, 
+%로 감싼 부분은 대체 가능 문자열을 뜻한다. USERPROFILE 값이 아래와 같을 때,
 
 ```bash
 USERPROFILE=C:\Users\jrichter
@@ -531,12 +535,12 @@ BOOL SetEnvironmentVariable(
 UINT SetErrorMode(UINT fuErrorMode);
 ```
 
-|플래그|설명|
-|---|---|
-|SEM_FAIL_CRITICALERRORS|시스템이 심각한 에러 처리기 메시지 박스를 출력하지 않도록 하고, 발생한 에러를 호출한 프로세스에 전달하도록 한다.|
-|SEM_NOGPFAULTERRORBOX|시스템이 일반 보호 실패 메시지 박스를 출력하지 않도록 한다. 이 플래그는 디버깅 애플리케이션이 일반 보호 실패 자체에 대한 예외 처리기를 가지고 있는 경우에 한해서만 사용하는 것이 좋다.|
-|SEM_NOOPENFILEERRORBOX|시스템이 파일 찾기 실패 박스를 출력하지 않도록 한다.|
-|SEM_NOALIGNMENTFAULTEXCEPT|시스템이 자동으로 메모리 정렬 실패를 수정하고, 애플리케이션에게는 실패 사실을 알리지 않도록 한다. 이 플래그는 x86/x64 프로세서에서는 아무런 영향을 주지 못한다.|
+| 플래그                     | 설명                                                                                                                                                                                   |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SEM_FAIL_CRITICALERRORS    | 시스템이 심각한 에러 처리기 메시지 박스를 출력하지 않도록 하고, 발생한 에러를 호출한 프로세스에 전달하도록 한다.                                                                       |
+| SEM_NOGPFAULTERRORBOX      | 시스템이 일반 보호 실패 메시지 박스를 출력하지 않도록 한다. 이 플래그는 디버깅 애플리케이션이 일반 보호 실패 자체에 대한 예외 처리기를 가지고 있는 경우에 한해서만 사용하는 것이 좋다. |
+| SEM_NOOPENFILEERRORBOX     | 시스템이 파일 찾기 실패 박스를 출력하지 않도록 한다.                                                                                                                                   |
+| SEM_NOALIGNMENTFAULTEXCEPT | 시스템이 자동으로 메모리 정렬 실패를 수정하고, 애플리케이션에게는 실패 사실을 알리지 않도록 한다. 이 플래그는 x86/x64 프로세서에서는 아무런 영향을 주지 못한다.                        |
 
 자식 프로세스는 부모 프로세스의 에러 모드 플래그를 상속한다. 하지만 자식 프로세스는 상속을 받앗는지 전달 받지 못했을 수 있다. 이 경우 차일드 프로세스의 스레드에서 실패가 발생하면 아무런 통지도 없이 종료되어 버린다. 이런 상황을 막기 위해 부모 프로세스는 자식 프로세스가 에러 모드를 상속 받지 않도록 할 수 있다. `CreateProcess` 호출 시 `CREATE_DEFAULT_ERROR_MODE` 플래그를 지정하면 된다.
 
