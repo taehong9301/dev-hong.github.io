@@ -13,8 +13,8 @@ last_modified_at: 2020-01-04T01:29:00+09:00
 toc: true
 toc_sticky: true
 comments: true
-# header:
-#   teaser:
+header:
+  teaser: https://user-images.githubusercontent.com/26136312/71738284-8e454600-2e99-11ea-88d7-d11483696cd2.png
 click-custom:
   - url: https://user-images.githubusercontent.com/26136312/71737273-8f28a880-2e96-11ea-9901-faca36998e3b.png
     image_path: https://user-images.githubusercontent.com/26136312/71737273-8f28a880-2e96-11ea-9901-faca36998e3b.png
