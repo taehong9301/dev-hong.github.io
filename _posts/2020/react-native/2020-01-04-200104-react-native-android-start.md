@@ -108,7 +108,11 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 $ echo $PATH
 ```
 
-# RN 프로젝트 생성
+# React Native 프로젝트 생성 및 실행
+
+본 글에서는 프로젝트 이름을 `TestApp` 이라고 하겠습니다.
+
+## 생성
 
 ```
 $ npx react-native init TestApp
@@ -120,7 +124,7 @@ $ npx react-native init TestApp
 $ react-native init TestApp
 ```
 
-# RN 프로젝트 실행
+## 실행
 
 방금 만든 프로젝트를 실행한다.
 
