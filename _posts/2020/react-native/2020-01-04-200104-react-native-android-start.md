@@ -37,12 +37,12 @@ start-project:
     title: "프로젝트 실행"
 ---
 
-# 환경 및 준비
+# 0. 환경 및 준비
 
 - 운영체제: 맥킨토시 `MAC OS`
 - 준비물: `homebrew`
 
-# nodejs & watchman 설치
+# 1. nodejs & watchman 설치
 
 본 글에서는 `brew`를 이용하여 설치를 합니다. 아래 명령어를 수행합니다.
 
@@ -54,7 +54,7 @@ $ brew install watchman
 <i class="fas fa-feather-alt"></i> **참고** 여기서 `watchman`은 `Facebook`에서 만든 도구로, `Filesystem`의 변화를 감지합니다. (쉽게 말하면 내가 만든 프로젝트의 파일들에게 변화가 있는지 확인함)
 {: .notice--info}
 
-# openjdk1.8 설치
+# 2. openjdk1.8 설치
 
 `react-native` 는 `homebrew` 를 통해서 `jdk`를 다운받는것을 추천합니다.
 
@@ -69,7 +69,7 @@ $ brew cask install adoptopenjdk8
 $ java -version
 ```
 
-# Android Studio 설치 및 SDK 설치
+# 3. Android Studio 설치 및 SDK 설치
 
 가장 번거로운 작업으로 안드로이드 스튜디오와 `SDK`를 설치합니다.
 
@@ -108,7 +108,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 $ echo $PATH
 ```
 
-# React Native 프로젝트 생성 및 실행
+# 4. React Native 프로젝트 생성 및 실행
 
 본 글에서는 프로젝트 이름을 `TestApp` 이라고 하겠습니다.
 
