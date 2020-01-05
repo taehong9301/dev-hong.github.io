@@ -85,7 +85,7 @@ defaultConfig {
 ...
 ```
 
-{% include gallery id="photo4" caption="[그림4] irebase 콘솔에 안드로이드 앱 추가" %}
+{% include gallery id="photo4" caption="[그림4] Firebase 콘솔에 안드로이드 앱 추가" %}
 
 {% include gallery id="photo5" caption="[그림5] 프로젝트에 google-services.json 파일 추가" %}
 
