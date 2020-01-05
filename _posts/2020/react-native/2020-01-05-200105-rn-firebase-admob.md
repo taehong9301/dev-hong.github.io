@@ -15,7 +15,7 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-  teaser:
+  teaser: https://user-images.githubusercontent.com/26136312/71777260-d622b500-2fe0-11ea-85aa-b82efbbfeffd.png
 photo1:
   - url: https://user-images.githubusercontent.com/26136312/71777258-d58a1e80-2fe0-11ea-92e5-66d23e1e0f8a.png
     image_path: https://user-images.githubusercontent.com/26136312/71777258-d58a1e80-2fe0-11ea-92e5-66d23e1e0f8a.png
