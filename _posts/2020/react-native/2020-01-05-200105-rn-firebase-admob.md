@@ -63,19 +63,15 @@ photo7:
 
 <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a>
 
-{% include gallery id="photo1" caption="Firebase 프로젝트 이름 정하기" %}
+{% include gallery id="photo1" caption="[그림1] Firebase 프로젝트 이름 정하기" %}
 
-{% include gallery id="photo2" caption="계속 클릭" %}
+{% include gallery id="photo2" caption="[그림2] 계속 클릭" %}
 
-{% include gallery id="photo3" caption="Firebase 프로젝트 생성 완료" %}
+{% include gallery id="photo3" caption="[그림3] Firebase 프로젝트 생성 완료" %}
 
 # 2. gradle 파일 수정
 
-{% include gallery id="photo4" caption="Firebase 콘솔에 안드로이드 앱 추가" %}
-
-{% include gallery id="photo5" caption="프로젝트에 google-services.json 파일 추가" %}
-
-`app` 수준의 `build.gradle`에서 `defaultDonfig > applicationId` 에 명시된 `com.admobtestapp` 을 넣습니다.
+`app` 수준의 `build.gradle`에서 `defaultDonfig > applicationId` 에 명시된 `com.admobtestapp` 을 아래 [그림4] 와 같이 넣습니다.
 
 ```gradle
 ...
@@ -88,6 +84,10 @@ defaultConfig {
 }
 ...
 ```
+
+{% include gallery id="photo4" caption="[그림4] irebase 콘솔에 안드로이드 앱 추가" %}
+
+{% include gallery id="photo5" caption="[그림5] 프로젝트에 google-services.json 파일 추가" %}
 
 프로젝트 수준의 `build.gradle`(`PROJECT/build.gradle`) 의 내용을 추가합니다.
 
@@ -131,7 +131,7 @@ dependencies {
 apply plugin: 'com.google.gms.google-services' // ** 파일의 맨 마지막에 추가 **
 ```
 
-{% include gallery id="photo6" caption="스킵" %}
+{% include gallery id="photo6" caption="[그림6] 스킵" %}
 
 # 3. AndroidManifest.xml 수정
 
@@ -214,7 +214,7 @@ const App = () => {
 export default App;
 ```
 
-{% include gallery id="photo7" caption="결과 확인" %}
+{% include gallery id="photo7" caption="[그림7] 결과 확인" %}
 
 # Reference
 
