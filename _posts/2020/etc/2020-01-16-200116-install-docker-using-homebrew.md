@@ -88,7 +88,7 @@ $ docker run -p 8080:8080 -t jenkins
 
 {% include gallery id="jenkins-docker" caption="Docker 로 jenkins 띄우기" %}
 
-`localhost:8080` 으로 접속해보면 jenkins가 정상적으로 띄어진다.
+`localhost:8080` 으로 접속해보면 `jenkins` 가 정상적으로 띄어진다.
 
 # Reference
 
