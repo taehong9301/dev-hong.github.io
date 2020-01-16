@@ -68,6 +68,8 @@ Docker version 19.03.5, build 633a0ea
 
 본 글에서는 `jenkins` 이미지를 이용하여 테스트 한다.
 
+이미지를 가져올 때는 `pull` 을 이용한다.
+
 ```
 $ docker pull jenkins
 ```
@@ -81,6 +83,8 @@ jenkins        latest        cd14cecfdb3a      18 months ago     696MB
 `jenkins` 이미지가 추가된것을 볼 수 있다.
 
 ## 2.2. docker를 이용하여 젠킨스 실행하기
+
+실행할때는 `run` 을 이용한다.
 
 ```
 $ docker run -p 8080:8080 -t jenkins
