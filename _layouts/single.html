@@ -24,6 +24,18 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <div class="page__inner-wrap">
+      <!-- Adsence :: 자동크기 반응형 -->
+      <div>
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-9462926197232794"
+          data-ad-slot="7087282601"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
+      
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
@@ -45,6 +57,18 @@ layout: default
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
+
+      <!-- Adsence :: 자동크기 반응형 -->
+      <div>
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-9462926197232794"
+          data-ad-slot="7087282601"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
