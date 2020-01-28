@@ -44,6 +44,7 @@ layout: default
         {% endif %}
 
         <div>
+          <h5>Google AD</h5>
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- [Github Blog] 반응형 -->
           <ins class="adsbygoogle"
@@ -55,8 +56,8 @@ layout: default
           <script>
               (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
+          <br>
         </div>
-
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
