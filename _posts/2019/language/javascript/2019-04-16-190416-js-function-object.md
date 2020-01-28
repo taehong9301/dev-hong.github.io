@@ -2,10 +2,10 @@
 title: "자바스크립트 Function 객체"
 excerpt: "자바스크립트 Function 객체 사용하는 방법에 대해 살펴봅니다. 간단하게 설명하면, Function 생성자는 함수를 생성하는 내장 객체입니다. 하지만, 전역변수와 인자로 넘겨준 지역변수만 사용할 수 있다는 단점이 있습니다."
 search: true
-categories: 
+categories:
   - Language
   - Javascript
-tags: 
+tags:
   - Javascript
   - 자바스크립트
   - Function
@@ -14,18 +14,18 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/190416-js-function-object-560x315.png
+  teaser: https://user-images.githubusercontent.com/26136312/73273341-29c2a000-4227-11ea-8a84-f4b4c363d247.png
 ---
 
 ## Function 생성자
 
-자바스크립트에는 `Function`이라는 생성자가 있습니다. `Function` 생성자는 함수를 생성하는 내장 객체입니다. 예를들어서, 제곱을 하는 함수 `square`를 생성해봅시다.  
+자바스크립트에는 `Function`이라는 생성자가 있습니다. `Function` 생성자는 함수를 생성하는 내장 객체입니다. 예를들어서, 제곱을 하는 함수 `square`를 생성해봅시다.
 
 `square` 함수는 일반적으로 생성 할 때, 아래와 같이 생성 할 수 있습니다.
 
 ```javascript
-function square(x){
-    return x * x
+function square(x) {
+  return x * x;
 }
 console.log(square(3)); // 9
 ```
