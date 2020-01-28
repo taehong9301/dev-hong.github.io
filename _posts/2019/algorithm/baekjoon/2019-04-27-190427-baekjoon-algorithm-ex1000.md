@@ -13,8 +13,8 @@ last_modified_at: 2019-04-27T00:41:00+09:00
 toc: true
 toc_sticky: true
 comments: true
-# header:
-#     teaser: /assets/images/thumbnail/2019/190427-baekjoon-algorithm-ex1000.png
+header:
+  teaser: https://user-images.githubusercontent.com/26136312/73272566-ee73a180-4225-11ea-953c-88d40b8577a4.png
 ---
 
 <i class="fas fa-exclamation-circle"></i> 아래 문제는 **백준**에서 가져온 문제입니다. 해당 사이트에서 문제를 접할 수 있습니다. <a href="https://www.acmicpc.net/problem/1000" target="_blank">https://www.acmicpc.net/problem/1000</a>
