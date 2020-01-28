@@ -2,10 +2,10 @@
 title: "스칼라 함수 정의하기"
 excerpt: "스칼라 함수를 정의하는 방법에 대해 살펴봅니다. 스칼라에서는 함수를 정의할때 def라는 키워드를 이용합니다."
 search: true
-categories: 
+categories:
   - Language
   - Scala
-tags: 
+tags:
   - Scala
   - 스칼라
 last_modified_at: 2019-04-26T20:59:00+09:00
@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/190426-scala-function-definition.png
+  teaser: https://user-images.githubusercontent.com/26136312/73273631-ace3f600-4227-11ea-9277-1216ccc065d3.png
 ---
 
 ## 함수 정의
