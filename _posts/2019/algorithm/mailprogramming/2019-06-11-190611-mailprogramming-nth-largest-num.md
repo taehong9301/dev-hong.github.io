@@ -2,10 +2,10 @@
 title: "매일프로그래밍 알고리즘, N번째 큰 수"
 excerpt: "본 글은 '매일프로그래밍'의 알고리즘 문제를 풀이하는 내용이 들어있습니다. 문제에 대한 저작권은 '매일프로그래밍'에게 있습니다. 문제는 다음과 같습니다. Given an integer array and integer N, find the Nth largest element in the array."
 search: true
-categories: 
+categories:
   - Algorithm
   - Mailprogramming
-tags: 
+tags:
   - 알고리즘
   - Python
   - 파이썬
@@ -15,10 +15,10 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/190611-mailprogramming-nth-largest-num.png
+  teaser: https://user-images.githubusercontent.com/26136312/73272717-2ed31f80-4226-11ea-9563-9ea087f62798.png
 exam-gallery:
-  - url: 
-    image_path: 
+  - url:
+    image_path:
     alt: ""
     title: ""
 ---
@@ -51,7 +51,7 @@ Output: -5
 
 ## 문제 풀이
 
-사실 문제는 파이썬(`Python`)으로 풀게되면 굉장히 쉽게 풀 수 있는 문제입니다. 거기다 시간복잡도, 공간복잡도에 대한 내용 또한 없기 때문에 `sorted()` 함수를 이용하면 됩니다.  
+사실 문제는 파이썬(`Python`)으로 풀게되면 굉장히 쉽게 풀 수 있는 문제입니다. 거기다 시간복잡도, 공간복잡도에 대한 내용 또한 없기 때문에 `sorted()` 함수를 이용하면 됩니다.
 
 만약 `C`와 같은 언어나 내장 함수를 사용하지 않고 푼다면, 정렬(`sorting`)을 이용하여 풀면 될 것 같습니다. (사실 내장함수를 사용하기보단 정렬 공부도 할겸 삽입 정렬, 버블 정렬, 퀵 정렬 등등을 이용하는 방법이 좋을 것 같습니다.)
 

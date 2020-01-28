@@ -2,10 +2,10 @@
 title: "매일프로그래밍 알고리즘, 암호화 가능 여부"
 excerpt: "본 글은 '매일프로그래밍'의 알고리즘 문제를 풀이하는 내용이 들어있습니다. 문제에 대한 저작권은 '매일프로그래밍'에게 있습니다. 문제는 다음과 같습니다. Given two strings of equal length, check if two strings can be encrypted 1 to 1."
 search: true
-categories: 
+categories:
   - Algorithm
   - Mailprogramming
-tags: 
+tags:
   - 알고리즘
   - Python
   - 파이썬
@@ -15,10 +15,10 @@ toc: true
 toc_sticky: true
 comments: true
 header:
-    teaser: /assets/images/thumbnail/2019/190612-mailprogramming-encrypt.png
+  teaser: https://user-images.githubusercontent.com/26136312/73272717-2ed31f80-4226-11ea-9563-9ea087f62798.png
 exam-gallery:
-  - url: 
-    image_path: 
+  - url:
+    image_path:
     alt: ""
     title: ""
 ---
@@ -35,23 +35,23 @@ Given two strings of equal length, check if two strings can be encrypted 1 to 1.
 ## 예제
 
 ```javascript
-Input: "EGG", "FOO"
-Output: True // E->F, G->O
+Input: "EGG", "FOO";
+Output: True; // E->F, G->O
 ```
 
 ```javascript
-Input: "ABBCD", "APPLE"
-Output: True // A->A, B->P, C->L, D->E
+Input: "ABBCD", "APPLE";
+Output: True; // A->A, B->P, C->L, D->E
 ```
 
 ```javascript
-Input: "AAB", "FOO"
-Output: False
+Input: "AAB", "FOO";
+Output: False;
 ```
 
 ## 문제 풀이
 
-키/값 형태를 갖는 맵(`map`) 자료형을 이용하여 문제를 풀었습니다.  
+키/값 형태를 갖는 맵(`map`) 자료형을 이용하여 문제를 풀었습니다.
 
 맵을 이용하여 데이터를 저장하는데, 그 데이터는 평문(`plain`) 문자를 키 값으로 가지고, 암호화(`encrypt`) 문자를 값으로 갖습니다.
 
@@ -63,8 +63,9 @@ Output: False
 1. 처음으로 저장된 문자인 경우(키 값이 존재하지 않는 경우): 맵 자료형에 데이터(키: 평문문자 / 값: 암호화 문자)를 저장합니다.
 
 2. 이미 저장된 문자인 경우(키 값이 존재하는 경우): 맵 자료형에서 이전에 저장된 값을 가져와 비교를 합니다.
-  - 만약 같은 경우 이어서 반복문을 수행
-  - 다른 경우는 1:1 암호화가 안되는 경우이기 때문에, `False`를 반환하고 프로그램을 종료합니다.
+
+- 만약 같은 경우 이어서 반복문을 수행
+- 다른 경우는 1:1 암호화가 안되는 경우이기 때문에, `False`를 반환하고 프로그램을 종료합니다.
 
 ### Python으로 풀기
 
