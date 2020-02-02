@@ -7,7 +7,7 @@ categories:
 tags:
   - Spring Boot
   - Maven
-last_modified_at: 2020-02-02T15:58:00+09:00
+last_modified_at: 2020-02-02T17:09:00+09:00
 toc: true
 toc_sticky: true
 comments: true
