@@ -1,6 +1,6 @@
 ---
 title: "Maven으로 Spring Boot 프로젝트 생성하기"
-excerpt: "Maven 으로 Spring Boot 프로젝트 생성한다."
+excerpt: "Maven 으로 프로젝트 생성부터 빌드, Spring Boot 실행까지 살펴본다."
 search: true
 categories:
   - Spring Boot
