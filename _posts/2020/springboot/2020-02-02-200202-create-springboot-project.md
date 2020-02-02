@@ -5,7 +5,7 @@ search: true
 categories:
   - Spring Boot
 tags:
-  - Spring
+  - Spring Boot
   - Maven
 last_modified_at: 2020-02-02T15:58:00+09:00
 toc: true
