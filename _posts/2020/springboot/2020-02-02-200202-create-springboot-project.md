@@ -139,7 +139,7 @@ public class TestApp
 }
 ```
 
-# 2. 프로젝트 빌드 및 실행
+# 3. 프로젝트 빌드 및 실행
 
 생성된 `spring boot` 앱을 실행해본다.
 
