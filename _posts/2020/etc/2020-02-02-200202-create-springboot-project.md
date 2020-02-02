@@ -163,7 +163,7 @@ $ mvn spring-boot:run
 
 화면에 `Root Page` 라는 말이 나오면, 제대로 스프링부트 프로젝트 생성된 것.
 
-**Maven 빌드로 실행하기**
+**Maven 빌드하여 실행하기**
 
 또는 메이븐으로 빌드하여 `.jar` 파일을 실행하는 방법도 있다.
 
@@ -173,3 +173,7 @@ $ java -jar target/test_project-0.0.1-SNAPSHOT.jar
 ```
 
 결과는 동일하다.
+
+# Reference
+
+- <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started" target="_blank">https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started</a>
