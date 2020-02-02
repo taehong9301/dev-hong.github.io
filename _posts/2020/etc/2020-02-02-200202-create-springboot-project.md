@@ -25,7 +25,7 @@ comments: true
 - OS: `MAC OS`
 - 준비물: `java`, `Maven`
 
-# Maven 프로젝트 생성
+# 1. Maven 프로젝트 생성
 
 아래 명령어를 통해 메이븐 프로젝트를 생성한다.
 
@@ -62,7 +62,7 @@ package: test
  Y: : y
 ```
 
-# pom.xml
+# 2. 코드 작성
 
 메이븐은 `pom.xml` 를 이용하여 필요한 아티팩트를 정의하거나 기타 정보를 설정한다.
 
@@ -112,7 +112,7 @@ package: test
 
 ```
 
-## 코드 작성
+## java 코드 생성
 
 파일 이름은 `TestApp.java` 로 했지만 이름은 중요하지 않다. (원하는 이름으로 하면 됨)
 
@@ -139,7 +139,7 @@ public class TestApp
 }
 ```
 
-## 실행
+# 2. 프로젝트 빌드 및 실행
 
 생성된 `spring boot` 앱을 실행해본다.
 
